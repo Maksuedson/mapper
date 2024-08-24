@@ -1,4 +1,4 @@
-package com.mapper.struct.mapper;
+package com.mapper.struct.mapper.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
