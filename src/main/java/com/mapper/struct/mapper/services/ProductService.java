@@ -1,11 +1,13 @@
 package com.mapper.struct.mapper.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.mapper.struct.mapper.dto.ProductDto;
 import com.mapper.struct.mapper.model.Product;
 import com.mapper.struct.mapper.repository.ProductRepository;
 
+@Service
 public class ProductService {
 
 	@Autowired
