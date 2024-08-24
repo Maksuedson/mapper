@@ -8,18 +8,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mapper.struct.mapper.dto.ProductDto;
-import com.mapper.struct.mapper.services.ProductService;
+import com.mapper.struct.mapper.mapper.ProductMapper;
+import com.mapper.struct.mapper.model.Product;
+import com.mapper.struct.mapper.repository.ProductRepository;
 
 @RestController
 @RequestMapping("/products")
 public class ProductController {
 
 	@Autowired
-	ProductService service;
+	private ProductRepository repo;
+	
+	@Autowired
+	private ProductMapper mapper;
 	
 	@PostMapping
-	public ResponseEntity<ProductDto> createProduct(@RequestBody ProductDto dto){
-		ProductDto createdProduct = service.saveProduct(dto);
-		return ResponseEntity.ok(createdProduct);
+	public ResponseEntity<Product> createProductMapper(@RequestBody ProductDto dto){
+		Product product = mapper.productDtoToProduct(dto);
+		Product saveProduct = repo.save(product);
+		return ResponseEntity.ok(saveProduct);
 	}
 }
