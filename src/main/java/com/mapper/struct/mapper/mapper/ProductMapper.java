@@ -9,8 +9,6 @@ import com.mapper.struct.mapper.model.Product;
 @Mapper(componentModel = "spring")
 public interface ProductMapper {
 	
-	//ProductMapper INSTANCE = Mappers.getMapper(ProductMapper.class);
-	
     @Mapping(source = "price", target = "preco")
     @Mapping(source = "name", target = "nome")
 	ProductDto productToProductDto(Product product);
